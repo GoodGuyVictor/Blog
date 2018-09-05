@@ -32,6 +32,8 @@ session_start();
     </style>
 </head>
 <body>
+    
+    <b>Hello</b>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.php">Blog</a>
