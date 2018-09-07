@@ -38,7 +38,7 @@ class Timeline
 
         if(!empty($this->posts)){
             foreach($this->posts as $post) {
-                $output .= '<div class="post"><h2>'.$post->title.'</h2><div class="post-content">'.$post->content.'</div></div>';
+                $output .= '<div class="post"><h2 class="post-title">'.$post->title.'</h2><div class="post-content">'.$post->content.'</div></div>';
             }
         } else {
             $output = "No posts yet";
