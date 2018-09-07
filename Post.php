@@ -16,12 +16,14 @@ class Post
     public $title;
     public $content;
     public $published;
+    public $image;
 
-    public function __construct($id, $title, $content, $published)
+    public function __construct($id, $title, $content, $published, $image)
     {
         $this->id = $id;
         $this->title = $title;
         $this->content = $content;
         $this->published = $published;
+        $this->image = $image;
     }
 }

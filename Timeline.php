@@ -25,9 +25,9 @@ class Timeline
         $this->db = Db::getInstance();
         $sql = "SELECT * FROM post ORDER BY published DESC";
         $result = $this->db->sqlSelectQuery($sql);
-        if($result->rowCount() > 0) {
+        if($result !== null) {
             while ($row = $result->fetch()) {
-                $this->posts[] = new Post($row["id"], $row["title"], $row["content"], $row["published"]);
+                $this->posts[] = new Post($row["id"], $row["title"], $row["content"], $row["published"], $row["image"]);
             }
         }
     }
@@ -38,7 +38,10 @@ class Timeline
 
         if(!empty($this->posts)){
             foreach($this->posts as $post) {
-                $output .= '<div class="post"><h2 class="post-title">'.$post->title.'</h2><div class="post-content">'.$post->content.'</div></div>';
+                if($post->image != null)
+                    $output .= '<div class="post"><h2 class="post-title">'.$post->title.'</h2><div class="post-image"><img src="'.$post->image.'" alt="post image"></div><div class="post-content">'.$post->content.'</div></div>';
+                else
+                    $output .= '<div class="post"><h2 class="post-title">'.$post->title.'</h2><div class="post-content">'.$post->content.'</div></div>';
             }
         } else {
             $output = "No posts yet";
