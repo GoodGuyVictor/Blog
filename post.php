@@ -1,6 +1,27 @@
 <?php
 
 session_start();
+require_once ("Db.php");
+
+$postTitle = '';
+$postContent = '';
+$postImage = '';
+$postPublished = '';
+
+if($_GET['post']) {
+    $db = \blog\db\Db::getInstance();
+    $sql = "SELECT title, content, published, image FROM post WHERE id =".$_GET['post']." LIMIT 1";
+    $result = $db->sqlSelectQuery($sql);
+    if($result) {
+        $row = $result->fetch();
+        $postTitle = $row['title'];
+        $postContent = $row['content'];
+        $postImage = $row['image'];
+        $postPublished = $row['published'];
+    }
+} else {
+    echo 'Post not found: 404';
+}
 
 ?>
 
@@ -14,7 +35,7 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title><?php echo $_POST["title"]; ?></title>
+    <title><?php echo $postTitle; ?></title>
     <style>
         .login-profile-btn {
             margin-right: 70px;
@@ -73,10 +94,13 @@ session_start();
         </div>
     </div>
 </nav>
-<div class="content">
-    <div class="container">
-        <h2 class="post-title"><?php echo $_POST["post-title"]; ?></h2>
-        <div class="post-content"><?php echo $_POST["post-content"]; ?></div>
+<div class="container">
+    <h2><?php echo $postTitle; ?></h2>
+    <?php if($postImage): ?>
+        <img src="<?php echo $postImage; ?>" alt="image">
+    <?php endif; ?>
+    <div class="content">
+        <?php echo $postContent; ?>
     </div>
 </div>
 
