@@ -7,7 +7,7 @@ session_start();
 $error = '';
 $imageUploaded = false;
 
-if(array_key_exists("post-image",$_FILES)) {
+if($_FILES['post-image']['error'] == UPLOAD_ERR_OK) {
     $target_dir = '\images\\';
     $target_file = __DIR__ . $target_dir . basename($_FILES['post-image']['name']);
     $imageType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
