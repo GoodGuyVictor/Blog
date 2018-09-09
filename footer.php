@@ -1,21 +1,21 @@
 <footer id="footer" class="footer navbar-fixed-bottom row-fluid mt-5">
-         <div class="container-fluid navbar-inner" style="background:#3b3b3b;">
-              <div class="row">
-                  <div class="col-6 col-md-3 btn pt-3 pb-3">
-                       <a href="" class="footerA"><strong>О сайте</strong></a>
-                  </div>
-                  <div class="col-6 col-md-3 btn pt-3 pb-3">
-                       <a href="" class="footerA"><strong>О нас</strong></a>
-                  </div>
-                  <div class="col-6 col-md-3 btn pt-3 pb-3">
-                       <a href="" class="footerA"><strong>Ссылка</strong></a>
-                  </div>
-                  <div class="col-6 col-md-3 btn pt-3 pb-3">
-                       <a href="" class="footerA"><strong>Ссылка</strong></a>
-                  </div>
-              </div>
-             </div>
-      </footer>
+    <div class="container-fluid navbar-inner" style="background:#3b3b3b;">
+        <div class="row">
+            <div class="col-6 col-md-3 btn pt-3 pb-3">
+                <a href="#" class="footerA"><strong>О сайте</strong></a>
+            </div>
+            <div class="col-6 col-md-3 btn pt-3 pb-3">
+                <a href="#" class="footerA"><strong>О нас</strong></a>
+            </div>
+            <div class="col-6 col-md-3 btn pt-3 pb-3">
+                <a href="#" class="footerA"><strong>Ссылка</strong></a>
+            </div>
+            <div class="col-6 col-md-3 btn pt-3 pb-3">
+                <a href="#" class="footerA"><strong>Ссылка</strong></a>
+            </div>
+        </div>
+    </div>
+</footer>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
