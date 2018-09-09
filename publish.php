@@ -13,7 +13,7 @@ if($_FILES['post-image']['error'] == UPLOAD_ERR_OK) {
     $imageType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     if($imageType != 'jpeg' && $imageType != 'jpg' && $imageType != 'png' && $imageType != 'gif' && $imageType != 'svg') {
-        $error .= 'Uploaded file should be an image (.jpeg or .png or .svg or .gif)';
+        $error .= 'Uploaded file should be an image (.jpeg or .jpg or .png or .svg or .gif)';
     }
 
     if($error) {
@@ -37,10 +37,10 @@ if($_POST) {
         $date = new DateTime();
         if($imageUploaded) {
             $imagePath = 'images/' . basename($_FILES['post-image']['name']);
-            $sql = "INSERT INTO post (title, content, published, image) VALUES('".$_POST["post-title"]."', '".$_POST["post-content"]."', now(), '".$imagePath."')";
+            $sql = "INSERT INTO post (title, content, image) VALUES('".$_POST["post-title"]."', '".$_POST["post-content"]."', '".$imagePath."')";
         }
         else {
-            $sql = "INSERT INTO post (title, content, published) VALUES('".$_POST["post-title"]."', '".$_POST["post-content"]."', now())";
+            $sql = "INSERT INTO post (title, content) VALUES('".$_POST["post-title"]."', '".$_POST["post-content"]."')";
         }
 
         $db->sqlQuery($sql);
