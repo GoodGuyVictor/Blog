@@ -12,6 +12,7 @@ session_start();
 <?php require 'header.php'; ?>
 <?php require 'slider.php'; ?>
 <h1>Test</h1>
+<h1>Test1</h1>
 <h1 class="text-center mt-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, obcaecati.</h1>
 
 <div class="container-fluid text-center" style="padding: 0px 40px 0px 40px" id="article">
