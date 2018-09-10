@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Condensed" rel="stylesheet">
-    <title>My blog</title>
+    <title><?php echo $_SESSION['page-title']; ?></title>
     
 </head>
 <body>
