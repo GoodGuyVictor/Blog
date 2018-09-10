@@ -1,11 +1,11 @@
 <?php
 
 use blog\timeline\Timeline;
-
 require_once ("Timeline.php");
 
 session_start();
-    $timeline = new Timeline();
+$_SESSION['page-title'] = 'My blog';
+$timeline = new Timeline();
 
 ?>
 

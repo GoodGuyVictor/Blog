@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); $_SESSION['page-title'] = 'Sign up'; ?>
 
 <?php require 'header.php'; ?>
 
