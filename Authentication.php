@@ -74,6 +74,11 @@ class Authentication
 
                         $_SESSION["logged_in"] = true;
                         $_SESSION["username"] = $_POST["username"];
+
+                        $sql = "SELECT id FROM user WHERE username LIKE '".$_POST["username"]."'";
+                        $result = $this->db->sqlSelectQuery($sql);
+                        $row = $result->fetch();
+                        $_SESSION["user_id"] = $row["id"];
                     }
                 } else {
                     $this->error .= "<li>Passwords don't match</li>";
@@ -120,9 +125,11 @@ class Authentication
                 $enteredPass = md5(self::SALT . md5($_POST["password"]));
                 $dbPass = $row["password"];
                 $dbUsername = $row["username"]; //$dbUsername === $_POST["username"]
+                $userId = $row["id"];
 
                 if($enteredPass === $dbPass) {
                     $_SESSION["logged_in"] = true;
+                    $_SESSION["user_id"] = $userId;
                     $_SESSION["username"] = $dbUsername;
                 } else {
                     $this->error .= "<li>Incorrect password</li>";
