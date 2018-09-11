@@ -114,3 +114,8 @@ a:hover{
     height: 500px;
     resize: none;
 }
+
+#new-comment {
+    height: 100px;
+    resize: none;
+}
