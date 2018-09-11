@@ -17,7 +17,7 @@
     
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background:#3b3b3b; border-bottom:4px solid black;">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background:#3b3b3b; border-bottom:4px solid black;">
         <a class="navbar-brand" href="index.php">Blog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
