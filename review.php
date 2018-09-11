@@ -1,18 +1,18 @@
 <?php
 
 session_start();
-require_once ("Db.php");
+require_once("Db.php");
 
 $postTitle = '';
 $postContent = '';
 $postImage = '';
 $postPublished = '';
 
-if($_GET['post']) {
+if ($_GET['post']) {
     $db = \blog\db\Db::getInstance();
-    $sql = "SELECT title, content, published, image FROM post WHERE id =".$_GET['post']." LIMIT 1";
+    $sql = "SELECT title, content, published, image FROM post WHERE id =" . $_GET['post'] . " LIMIT 1";
     $result = $db->sqlSelectQuery($sql);
-    if($result) {
+    if ($result) {
         $row = $result->fetch();
         $postTitle = $row['title'];
         $postContent = $row['content'];
@@ -32,7 +32,7 @@ if($_GET['post']) {
 <div class="container">
     <div class="post-section">
         <h2><?php echo $postTitle; ?></h2>
-        <?php if($postImage): ?>
+        <?php if ($postImage): ?>
             <img src="<?php echo $postImage; ?>" alt="image">
         <?php endif; ?>
         <div class="content">
