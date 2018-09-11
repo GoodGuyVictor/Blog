@@ -19,6 +19,7 @@ if($_GET['post']) {
         $postImage = $row['image'];
         $postPublished = $row['published'];
         $_SESSION['page-title'] = $postTitle;
+        $_SESSION['post_id'] = $_GET['post'];
     }
 } else {
     echo 'Post not found: 404';
@@ -29,12 +30,17 @@ if($_GET['post']) {
 <?php require 'header.php'; ?>
 
 <div class="container">
-    <h2><?php echo $postTitle; ?></h2>
-    <?php if($postImage): ?>
-        <img src="<?php echo $postImage; ?>" alt="image">
-    <?php endif; ?>
-    <div class="content">
-        <?php echo $postContent; ?>
+    <div class="post-section">
+        <h2><?php echo $postTitle; ?></h2>
+        <?php if($postImage): ?>
+            <img src="<?php echo $postImage; ?>" alt="image">
+        <?php endif; ?>
+        <div class="content">
+            <?php echo $postContent; ?>
+        </div>
+    </div>
+    <div class="comment-section">
+        <?php require 'comments.php'; ?>
     </div>
 </div>
 
