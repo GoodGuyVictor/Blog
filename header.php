@@ -47,7 +47,7 @@
             <div class="login-profile-btn">
                 <?php if($_SESSION["logged_in"]): ?>
                     <!-- User is admin -->
-                    <?php if($_SESSION['user_id'] == 7): ?>
+                    <?php if($_SESSION['username'] == "admin"): ?>
                         <div class="dropdown" id="profile-dropdown">
                             <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php echo $_SESSION["username"]; ?>
