@@ -8,6 +8,7 @@
     </form>
 </div>
 <div class="comments">
+    <hr>
     <?php
     use blog\comment\Comment;
     use blog\db\Db;
