@@ -11,6 +11,7 @@ if($_POST['post-title'] && $_POST['post-content']) {
 
     $imageUploaded = false;
 
+    //checking for image and transferring it to permanent location
     if($_FILES['post-image']['error'] == UPLOAD_ERR_OK) {
         $target_dir = '\images\\';
         $target_file = __DIR__ . $target_dir . basename($_FILES['post-image']['name']);
@@ -40,10 +41,10 @@ if($_POST['post-title'] && $_POST['post-content']) {
     $date = new DateTime();
     if($imageUploaded) {
         $imagePath = 'images/' . basename($_FILES['post-image']['name']);
-        $sql = "INSERT INTO post (title, content, image) VALUES('".$_POST["post-title"]."', '".$_POST["post-content"]."', '".$imagePath."')";
+        $sql = "INSERT INTO post (title, content, image, author_id) VALUES('".$_POST["post-title"]."', '".$_POST["post-content"]."', '".$imagePath."', '".$_SESSION['user_id']."')";
     }
     else {
-        $sql = "INSERT INTO post (title, content) VALUES('".$_POST["post-title"]."', '".$_POST["post-content"]."')";
+        $sql = "INSERT INTO post (title, content, author_id) VALUES('".$_POST["post-title"]."', '".$_POST["post-content"]."', '".$_SESSION['user_id']."')";
     }
 
     $db->sqlQuery($sql);
