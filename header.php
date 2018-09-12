@@ -46,18 +46,32 @@
 
             <div class="login-profile-btn">
                 <?php if($_SESSION["logged_in"]): ?>
-                    <div class="dropdown" id="profile-dropdown">
-                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php echo $_SESSION["username"]; ?>
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">My profile</a>
-                            <a class="dropdown-item" href="new-post.php">New post</a>
-                            <a class="dropdown-item" href="logout.php">Log out</a>
+                    <!-- User is admin -->
+                    <?php if($_SESSION['user_id'] == 7): ?>
+                        <div class="dropdown" id="profile-dropdown">
+                            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $_SESSION["username"]; ?>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">My profile</a>
+                                <a class="dropdown-item" href="new-post.php">New post</a>
+                                <a class="dropdown-item" href="logout.php">Log out</a>
+                            </div>
                         </div>
-                    </div>
+                    <!-- User in not admin -->
+                    <?php else: ?>
+                        <div class="dropdown" id="profile-dropdown">
+                            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $_SESSION["username"]; ?>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">My profile</a>
+                                <a class="dropdown-item" href="logout.php">Log out</a>
+                            </div>
+                        </div>
+                    <?php endif ?>
                 <?php else: ?>
-                    <a href="#" class="nav-link btn" data-toggle="modal" data-target="#loginIn" style="background:#FFC107; color:black;">Log in</a>
+                    <a href="#" class="nav-link btn btn-warning" data-toggle="modal" data-target="#loginIn">Log in</a>
                 <?php endif ?>
             </div>
         </div>
