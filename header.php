@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
     <title><?php echo $_SESSION['page-title']; ?></title>
     
 </head>
@@ -46,30 +47,18 @@
 
             <div class="login-profile-btn">
                 <?php if($_SESSION["logged_in"]): ?>
-                    <!-- User is admin -->
-                    <?php if($_SESSION['username'] == "admin"): ?>
                         <div class="dropdown" id="profile-dropdown">
                             <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <?php echo $_SESSION["username"]; ?>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">My profile</a>
-                                <a class="dropdown-item" href="new-post.php">New post</a>
+                                <?php if($_SESSION['username'] == "admin"): ?>
+                                    <a class="dropdown-item" href="new-post.php">New post</a>
+                                <?php endif; ?>
                                 <a class="dropdown-item" href="logout.php">Log out</a>
                             </div>
                         </div>
-                    <!-- User in not admin -->
-                    <?php else: ?>
-                        <div class="dropdown" id="profile-dropdown">
-                            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php echo $_SESSION["username"]; ?>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">My profile</a>
-                                <a class="dropdown-item" href="logout.php">Log out</a>
-                            </div>
-                        </div>
-                    <?php endif ?>
                 <?php else: ?>
                     <a href="#" class="nav-link btn btn-warning" data-toggle="modal" data-target="#loginIn">Log in</a>
                 <?php endif ?>
