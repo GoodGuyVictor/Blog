@@ -30,17 +30,19 @@ if ($_GET['post']) {
 <?php require 'header.php'; ?>
 
 <div class="container">
-    <div class="post-section">
-        <h2><?php echo $postTitle; ?></h2>
-        <?php if ($postImage): ?>
-            <img src="<?php echo $postImage; ?>" alt="image">
-        <?php endif; ?>
-        <div class="content">
-            <?php echo $postContent; ?>
+    <div class="post-wrapper">
+        <div class="post-section">
+            <h1 class="title"><?php echo $postTitle; ?></h1>
+            <?php if ($postImage): ?>
+                <img src="<?php echo $postImage; ?>" alt="image">
+            <?php endif; ?>
+            <div class="content">
+                <?php echo $postContent; ?>
+            </div>
         </div>
-    </div>
-    <div class="comment-section">
-        <?php require 'comments.php'; ?>
+        <div class="comment-section">
+            <?php require 'comments.php'; ?>
+        </div>
     </div>
 </div>
 
