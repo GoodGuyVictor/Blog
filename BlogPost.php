@@ -10,6 +10,7 @@ namespace blog\post;
 
 
 use blog\db\Db;
+require_once 'Db.php';
 
 class BlogPost
 {
