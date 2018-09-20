@@ -6,19 +6,19 @@ require_once("Db.php");
 $postTitle = '';
 $postContent = '';
 $postImage = '';
-$postPublished = '';
+$postCreatedAt = '';
 $authorId = 0;
 
 if ($_GET['post']) {
     $db = \blog\db\Db::getInstance();
-    $sql = "SELECT title, content, published, image, author_id FROM post WHERE id =" . $_GET['post'] . " LIMIT 1";
+    $sql = "SELECT title, content, created_at, image, author_id FROM post WHERE id =" . $_GET['post'] . " LIMIT 1";
     $result = $db->sqlSelectQuery($sql);
     if ($result) {
         $row = $result->fetch();
         $postTitle = $row['title'];
         $postContent = $row['content'];
         $postImage = $row['image'];
-        $postPublished = $row['published'];
+        $postCreatedAt = $row['created_at'];
         $authorId = $row['author_id'];
         $_SESSION['page-title'] = $postTitle;
         $_SESSION['post_id'] = $_GET['post'];
@@ -38,10 +38,10 @@ if ($_GET['post']) {
             <?php if($_SESSION['logged_in'] && $_SESSION['user_id'] == $authorId): ?>
                 <div class="post-interface">
                     <a href="edit-post.php" class="post-interface__edit">Edit</a>
-                    <a href="edit-post.php" class="post-interface__delete">Delete</a>
+                    <a href="delete-post.php" class="post-interface__delete">Delete</a>
                 </div>
             <?php endif; ?>
-            
+
             <?php if ($postImage): ?>
                 <img src="<?php echo $postImage; ?>" alt="image">
             <?php endif; ?>
