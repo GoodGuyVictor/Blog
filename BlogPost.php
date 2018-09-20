@@ -9,22 +9,40 @@
 namespace blog\post;
 
 
+use blog\db\Db;
+
 class BlogPost
 {
 
     public $id;
     public $title;
     public $content;
-    public $published;
     public $image;
+    public $created_at;
+    public $updated_at;
+    public $author_id;
 
-    public function __construct($id, $title, $content, $published, $image)
+    public function __construct($id, $title = '', $content = '', $created_at = '', $image = '', $updated_at = '', $author_id = '')
     {
-        $this->id = $id;
-        $this->title = $title;
-        $this->content = $content;
-        $this->published = $published;
-        $this->image = $image;
+        if($title) {
+            $this->id = $id;
+            $this->title = $title;
+            $this->content = $content;
+            $this->created_at = $created_at;
+            $this->image = $image;
+        } else {
+            $db = Db::instance();
+            $sql = "SELECT title, content, created_at, image, author_id FROM post WHERE id =" . $id . " LIMIT 1";
+            $result = $db->sqlSelectQuery($sql);
+            $row = $result->fetch();
+            $this->title = $row['title'];
+            $this->content = $row['content'];
+            $this->image = $row['image'];
+            $this->created_at = $row['created_at'];
+            $this->author_id = $row['author_id'];
+            $_SESSION['page-title'] = $this->title;
+            $_SESSION['post_id'] = $this->id;
+        }
     }
 
     public function __toString()
