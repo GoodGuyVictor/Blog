@@ -2,7 +2,7 @@
     session_start();
 
     require_once ('Db.php');
-    $db = \blog\db\Db::getInstance();
+    $db = \blog\db\Db::instance();
 
     //deleting comments first
     $sql = "DELETE FROM comment WHERE post_id =" . $_SESSION['post_id'];

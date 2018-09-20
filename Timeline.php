@@ -22,12 +22,12 @@ class Timeline
 
     public function __construct()
     {
-        $this->db = Db::getInstance();
+        $this->db = Db::instance();
         $sql = "SELECT * FROM post ORDER BY created_at DESC";
         $result = $this->db->sqlSelectQuery($sql);
         if($result !== null) {
             while ($row = $result->fetch()) {
-                $this->posts[] = new BlogPost($row["id"], $row["title"], $row["content"], $row["published"], $row["image"]);
+                $this->posts[] = new BlogPost($row["id"], $row["title"], $row["content"], $row["created_at"], $row["image"]);
             }
         }
     }
@@ -38,7 +38,7 @@ class Timeline
 
         if(!empty($this->posts)){
             foreach($this->posts as $post) {
-                $output .= $post->printPost();
+                $output .= $post->displayInTimeline();
             }
             $output .= '</div>';
         } else {

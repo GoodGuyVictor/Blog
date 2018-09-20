@@ -6,7 +6,7 @@
     $postTitle = '';
     $postContent = '';
 
-    $db = \blog\db\Db::getInstance();
+    $db = \blog\db\Db::instance();
     $sql = "SELECT title, content FROM post WHERE id =" . $_SESSION['post_id'];
     $result = $db->sqlSelectQuery($sql);
     if($result) {

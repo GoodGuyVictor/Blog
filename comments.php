@@ -12,33 +12,8 @@
         <p><a href="login.php">Login</a> to leave a comment</p>
     <?php endif; ?>
 </div>
-
-
 <div class="comments">
     <h1>Comments</h1>
     <hr>
-    <?php
-    use blog\comment\Comment;
-    use blog\db\Db;
-
-    require_once ('Db.php');
-    require_once ('Comment.php');
-
-        $db = Db::getInstance();
-        $sql = "SELECT * FROM comment WHERE post_id = ".$_SESSION['post_id']." ORDER BY created DESC";
-        $result = $db->sqlSelectQuery($sql);
-        $comments = [];
-        if($result) {
-            while($row = $result->fetch()) {
-                $comments[] = new Comment($row['id'], $row['content'], $row['created'], $row['user_id'], $row['post_id']);
-            }
-
-            foreach ($comments as $comment) {
-                $comment->printComment();
-            }
-        } else {
-            echo 'No comments yet';
-        }
-
-    ?>
+    <?php $post->displayPostComments(); ?>
 </div>

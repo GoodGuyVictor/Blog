@@ -9,7 +9,7 @@ $error = '';
 
 if($_POST['update-post']) {
     if($_POST['post-title'] && $_POST['post-content']) {
-        $db = Db::getInstance();
+        $db = Db::instance();
         $sql = "UPDATE post SET title ='" . $_POST['post-title'] . "', content ='" . $_POST['post-content'] . "', updated_at = now() WHERE id =". $_SESSION['post_id'];
         $db->sqlQuery($sql);
         header('Location: review.php?post='.$_SESSION['post_id']);
@@ -51,7 +51,7 @@ if($_POST['update-post']) {
             }
         }
 
-        $db = Db::getInstance();
+        $db = Db::instance();
         if ($imageUploaded) {
             $imagePath = 'images/' . basename($_FILES['post-image']['name']);
             $sql = "INSERT INTO post (title, content, image, author_id) VALUES('" . $_POST["post-title"] . "', '" . $_POST["post-content"] . "', '" . $imagePath . "', '" . $_SESSION['user_id'] . "')";

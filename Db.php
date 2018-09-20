@@ -7,7 +7,7 @@
 
     class Db
     {
-        public static $instance = null;
+        private static $instance = null;
         public $hostname = "localhost";
         public $db_name = "blog";
         public $username = "root";
@@ -29,7 +29,7 @@
             }
         }
 
-        public static function getInstance()
+        public static function instance()
         {
             if(self::$instance === null)
                 self::$instance = new DB();
