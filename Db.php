@@ -7,7 +7,7 @@
 
     class Db
     {
-        public static $instance = null;
+        private static $instance = null;
         public $hostname = "localhost";
         public $db_name = "blog";
         public $username = "root";
