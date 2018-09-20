@@ -23,7 +23,7 @@ class Timeline
     public function __construct()
     {
         $this->db = Db::getInstance();
-        $sql = "SELECT * FROM post ORDER BY published DESC";
+        $sql = "SELECT * FROM post ORDER BY created_at DESC";
         $result = $this->db->sqlSelectQuery($sql);
         if($result !== null) {
             while ($row = $result->fetch()) {
