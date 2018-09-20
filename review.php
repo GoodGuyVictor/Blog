@@ -26,10 +26,10 @@ if ($_GET['post']) {
 } else {
     echo 'Post not found: 404';
 }
-
 ?>
 
 <?php require 'header.php'; ?>
+<a href="index.php" class="go-back-arrow"><i class="fas fa-arrow-circle-left"></i></a>
 
 <div class="container">
     <div class="post-wrapper">
