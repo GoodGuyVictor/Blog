@@ -21,7 +21,7 @@ class Authentication
     public function __construct()
     {
         session_start();
-        $this->db = Db::getInstance();
+        $this->db = Db::instance();
         $this->error = "";
     }
 

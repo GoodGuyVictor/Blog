@@ -10,7 +10,7 @@ $postCreatedAt = '';
 $authorId = 0;
 
 if ($_GET['post']) {
-    $db = \blog\db\Db::getInstance();
+    $db = \blog\db\Db::instance();
     $sql = "SELECT title, content, created_at, image, author_id FROM post WHERE id =" . $_GET['post'] . " LIMIT 1";
     $result = $db->sqlSelectQuery($sql);
     if ($result) {

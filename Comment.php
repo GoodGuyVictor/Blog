@@ -30,7 +30,7 @@ class Comment
 
     public function getUsernameById($user_id)
     {
-        $db = Db::getInstance();
+        $db = Db::instance();
         $sql = "SELECT username FROM user JOIN comment ON comment.user_id = user.id WHERE user.id = ".$user_id." LIMIT 1";
         $result = $db->sqlSelectQuery($sql);
         if($result) {

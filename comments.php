@@ -24,7 +24,7 @@
     require_once ('Db.php');
     require_once ('Comment.php');
 
-        $db = Db::getInstance();
+        $db = Db::instance();
         $sql = "SELECT * FROM comment WHERE post_id = ".$_SESSION['post_id']." ORDER BY created DESC";
         $result = $db->sqlSelectQuery($sql);
         $comments = [];
