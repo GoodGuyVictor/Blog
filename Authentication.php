@@ -145,7 +145,7 @@ class Authentication
                 exit;
             } else {
                 unset($_SESSION["error-message"]);
-                header("Location: index.php");
+                header("Location: ".$_SERVER['HTTP_REFERER']);
                 exit;
             }
         }
