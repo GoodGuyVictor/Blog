@@ -38,7 +38,7 @@ class Timeline
 
         if(!empty($this->posts)){
             foreach($this->posts as $post) {
-                $output .= $post->printPost();
+                $output .= $post->displayInTimeline();
             }
             $output .= '</div>';
         } else {
