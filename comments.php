@@ -1,5 +1,6 @@
 <div class="create-comment">
     <?php if($_SESSION['user_id']): ?>
+        <p><?php echo 'Logged in as <u>'. $_SESSION['username'].'</u>'; ?></p>
         <form action="publish-comment.php" method="post">
             <fieldset class="form-group">
                 <label for="new-comment" class="sr-only">New comment</label>
