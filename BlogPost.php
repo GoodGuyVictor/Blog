@@ -57,4 +57,31 @@ class BlogPost
     {
         return $this->__toString();
     }
+
+    public function printTitle()
+    {
+        $output = '<h1 class="title">'.$this->title.'</h1>';
+        if($_SESSION['logged_in'] && $_SESSION['user_id'] == $this->author_id)
+            $output .= $this->printPostInterface();
+
+        return $output;
+    }
+
+    public function printPostInterface()
+    {
+        return '<div class="post-interface">
+                    <a href="edit-post.php" class="post-interface__edit">Edit</a>
+                    <a href="delete-post.php" class="post-interface__delete">Delete</a>
+                </div>';
+    }
+
+    public function printImage()
+    {
+        return ' <img src="'.$this->image.'" alt="...">';
+    }
+
+    public function printContent()
+    {
+        return '<div class="content">'.$this->content.'</div>';
+    }
 }
