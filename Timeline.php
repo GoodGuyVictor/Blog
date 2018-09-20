@@ -27,7 +27,7 @@ class Timeline
         $result = $this->db->sqlSelectQuery($sql);
         if($result !== null) {
             while ($row = $result->fetch()) {
-                $this->posts[] = new BlogPost($row["id"], $row["title"], $row["content"], $row["published"], $row["image"]);
+                $this->posts[] = new BlogPost($row["id"], $row["title"], $row["content"], $row["created_at"], $row["image"]);
             }
         }
     }
