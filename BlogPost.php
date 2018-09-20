@@ -17,7 +17,7 @@ class BlogPost
     public $id;
     public $title;
     public $content;
-    public $image;
+    public $image = null;
     public $created_at;
     public $updated_at;
     public $author_id;
@@ -45,7 +45,7 @@ class BlogPost
         }
     }
 
-    public function __toString()
+    public function displayPostInTimeline()
     {
         if($this->image != null)
             return '<div class="post"><a href="review.php?post='.$this->id.'" class="post__link"><h2 class="post-title">'.$this->title.'</h2><div class="post-image"><img src="'.$this->image.'" alt="post image"></div><div class="post-content">'.$this->content.'</div></a></div>';
@@ -53,12 +53,12 @@ class BlogPost
             return '<div class="post"><a href="review.php?post='.$this->id.'" class="post__link"><h2 class="post-title">'.$this->title.'</h2><div class="post-content">'.$this->content.'</div></a></div>';
     }
 
-    public function printPost()
+    public function __toString()
     {
-        return $this->__toString();
+        return $this->printPost();
     }
 
-    public function printTitle()
+    private function printTitle()
     {
         $output = '<h1 class="title">'.$this->title.'</h1>';
         if($_SESSION['logged_in'] && $_SESSION['user_id'] == $this->author_id)
@@ -67,7 +67,7 @@ class BlogPost
         return $output;
     }
 
-    public function printPostInterface()
+    private function printPostInterface()
     {
         return '<div class="post-interface">
                     <a href="edit-post.php" class="post-interface__edit">Edit</a>
@@ -75,13 +75,23 @@ class BlogPost
                 </div>';
     }
 
-    public function printImage()
+    private function printImage()
     {
-        return ' <img src="'.$this->image.'" alt="...">';
+        return '<img src="'.$this->image.'" alt="...">';
     }
 
-    public function printContent()
+    private function printContent()
     {
         return '<div class="content">'.$this->content.'</div>';
+    }
+
+    private function printPost()
+    {
+        $output = $this->printTitle();
+        if($this->image)
+            $output .= $this->printImage();
+        $output .= $this->printContent();
+
+        return $output;
     }
 }
