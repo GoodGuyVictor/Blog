@@ -46,9 +46,4 @@ class Comment
         $user = $this->getUsernameById($this->user_id);
         return '<div class="comment"><div class="comment-header"><div class="username">'.$user.'</div><div class="date">'.$this->created.'</div></div><div class="comment-body">'.$this->content.'</div></div><hr>';
     }
-
-    public function printComment()
-    {
-        echo $this->__toString();
-    }
 }
