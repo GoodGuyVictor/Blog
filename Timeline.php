@@ -34,14 +34,15 @@ class Timeline
 
     public function __toString()
     {
-        $output = '';
+        $output = '<div class="timeline">';
 
         if(!empty($this->posts)){
             foreach($this->posts as $post) {
                 $output .= $post->printPost();
             }
+            $output .= '</div>';
         } else {
-            $output = "No posts yet";
+            $output .= "No posts yet</div>";
         }
 
         return $output;
