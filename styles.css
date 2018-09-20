@@ -54,12 +54,6 @@ a:hover {
     width: 100%;
 }
 
-/*Slider*/
-
-.carousel-control-next-icon, .carousel-control-prev-icon {
-    width: 50px;
-    height: 50px;
-}
 
 /*Footer*/
 
@@ -159,4 +153,18 @@ a:hover {
     font-size: 12px;
     color: grey;
     font-weight: 600;
+}
+
+.post-interface__edit {
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+.post-interface__delete {
+    color: red;
+    text-decoration: underline;
+}
+
+.go-back-arrow {
+    font-size: 20px;
 }
