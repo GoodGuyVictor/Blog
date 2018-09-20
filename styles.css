@@ -28,16 +28,16 @@ a:hover {
     background: white;
     width: 100%;
     margin-bottom: 3%;
+    color: black;
 }
 
-.post2 {
-    width: 100%;
-    height: 500px;
-    background: white;
+.post__link {
+    color: black;
 }
 
-.post2 a {
-    color: #ffc107;
+.post__link:hover {
+    text-decoration: underline;
+    color: black;
 }
 
 .post-title {
@@ -57,19 +57,6 @@ a:hover {
 
 /*Footer*/
 
-.footerA {
-    color: #ffc107;
-    transition: 0.5s;
-    padding: 10px 20px 10px 20px;
-    border-radius: 10px;
-}
-
-.footerA:hover {
-    background: #ffc107;
-    color: black;
-    transition: 1s;
-}
-
 /**/
 .sticky {
     position: fixed;
@@ -81,7 +68,6 @@ a:hover {
     z-index: 101;
 }
 
-/*Твои стили которые ты указывал*/
 
 .login-profile-btn {
     margin-right: 70px;
@@ -89,11 +75,6 @@ a:hover {
 
 .dropdown-item:hover {
     background: #FFC107;
-}
-
-.container {
-    width: 100%;
-    padding: 150px 30px;
 }
 
 #username {
@@ -165,6 +146,41 @@ a:hover {
     text-decoration: underline;
 }
 
+.fa-arrow-circle-left {
+    font-size: 40px;
+}
+
 .go-back-arrow {
-    font-size: 20px;
+    position: fixed;
+    top: 17%;
+    left: 2%;
+    color: #000000;
+}
+
+.go-back-arrow:hover {
+    color: #484848;
+}
+
+#footer {
+    background:#3b3b3b;
+    align-items: center;
+    display: flex;
+    color: white;
+    height: 63px;
+}
+
+.post-wrapper {
+    margin-top: 50px;
+}
+
+.edit-post-dashboard {
+    margin-top: 50px;
+}
+
+.timeline {
+    margin-top: 50px;
+}
+
+.create-comment {
+    margin-bottom: 50px;
 }
