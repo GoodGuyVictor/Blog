@@ -9,8 +9,10 @@
 namespace blog\post;
 
 
+use blog\comment\Comment;
 use blog\db\Db;
 require_once 'Db.php';
+require_once 'Comment.php';
 
 class BlogPost
 {
@@ -25,8 +27,9 @@ class BlogPost
 
     public function __construct($id, $title = '', $content = '', $created_at = '', $image = '', $updated_at = '', $author_id = '')
     {
+        session_start();
+        $this->id = $id;
         if($title) {
-            $this->id = $id;
             $this->title = $title;
             $this->content = $content;
             $this->created_at = $created_at;
@@ -94,5 +97,24 @@ class BlogPost
         $output .= $this->printContent();
 
         return $output;
+    }
+
+    public function displayPostComments()
+    {
+        $db = Db::instance();
+        $sql = "SELECT * FROM comment WHERE post_id = ".$this->id." ORDER BY created DESC";
+        $result = $db->sqlSelectQuery($sql);
+        $comments = [];
+        if($result) {
+            while($row = $result->fetch()) {
+                $comments[] = new Comment($row['id'], $row['content'], $row['created'], $row['user_id'], $row['post_id']);
+            }
+
+            foreach ($comments as $comment) {
+                echo $comment;
+            }
+        } else {
+            echo 'No comments yet';
+        }
     }
 }
