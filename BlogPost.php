@@ -45,7 +45,7 @@ class BlogPost
         }
     }
 
-    public function displayPostInTimeline()
+    public function displayInTimeline()
     {
         if($this->image != null)
             return '<div class="post"><a href="review.php?post='.$this->id.'" class="post__link"><h2 class="post-title">'.$this->title.'</h2><div class="post-image"><img src="'.$this->image.'" alt="post image"></div><div class="post-content">'.$this->content.'</div></a></div>';
