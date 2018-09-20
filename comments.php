@@ -15,5 +15,5 @@
 <div class="comments">
     <h1>Comments</h1>
     <hr>
-    <?php displayPostComments(); ?>
+    <?php $post->displayPostComments(); ?>
 </div>
