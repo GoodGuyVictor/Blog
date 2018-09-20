@@ -17,8 +17,8 @@
 
 ?>
 
-<?php require 'header.php'; ?>
-
+<?php include 'header.php'; ?>
+    <a href="review.php?post=<?php echo $_SESSION['post_id']; ?>" class="go-back-arrow"><i class="fas fa-arrow-circle-left"></i></a>
     <div class="edit-post-dashboard">
         <div class="container">
             <div class="error"><?php echo $_SESSION['error']; ?></div>
