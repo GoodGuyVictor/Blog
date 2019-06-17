@@ -7,6 +7,7 @@
  */
 
 //test comment
+//another comment
 
 namespace blog\authentication;
 

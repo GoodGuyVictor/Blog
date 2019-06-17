@@ -7,7 +7,7 @@
  */
 
 namespace blog\post;
-
+//comment
 
 use blog\comment\Comment;
 use blog\db\Db;
