@@ -16,7 +16,7 @@ require_once 'Comment.php';
 
 class BlogPost
 {
-
+//comments
     public $id;
     public $title;
     public $content;
